@@ -1,0 +1,15 @@
+{% load i18n %}
+{% if admin %}
+{{ media }}
+<div id="{{ prefix }}">
+  <input type="hidden" id="{{ prefix }}_page_id" value="{{ page_id }}"/>
+  <div id="{{ prefix }}_header">
+    <a class="edit" href="#">{% trans "edit" %}</a>
+    <a style="display:none;" class="save" href="#">{% trans "save" %}</a>
+    <a style="display:none;" class="cancel" href="#">{% trans "cancel" %}</a>
+  </div>
+  <div id="{{ prefix }}_body">{{ content }}</div>
+</div>
+{% else %}
+{{ content }}
+{% endif %}
