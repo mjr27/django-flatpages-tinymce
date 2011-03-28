@@ -32,13 +32,17 @@ def flatpage_media(context):
     mce_config['elements'] = "%s_body" % local_settings.DIV_PREFIX
     mce_config['strict_loading_mode'] = 1
 
+    postfix = ""
+    if local_settings.USE_MINIFIED:
+        postfix = "-min"
+
     media = {
         'js': [
             os.path.join(media_url, tinymce.settings.JS_URL),
-            os.path.join(local_settings.MEDIA_URL, "edit.js"),
+            os.path.join(local_settings.MEDIA_URL, "edit%s.js" % postfix),
             ],
         'css': [
-            os.path.join(local_settings.MEDIA_URL, 'edit.css'),
+            os.path.join(local_settings.MEDIA_URL, 'edit%s.css' % postfix),
             ],
         }
     if tinymce.settings.USE_FILEBROWSER:
