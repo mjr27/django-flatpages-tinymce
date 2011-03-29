@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import os,sys
-from setuptools import setup
+from setuptools import setup, find_packages
 
 version = "0.1.0"
 
@@ -27,7 +27,8 @@ setup(name='django-flatpages-tinymce',
       author='McLaud Jr',
       author_email='mjr@itage.biz',
       license='MIT',
-      packages=['flatpages_tinymce'],
+      packages=find_packages(),
+      include_package_data=True,
       requires = ['django_tinymce (>=1.5)', 'Django (>=1.3)'],
       entry_points={},
       zip_safe=False)
