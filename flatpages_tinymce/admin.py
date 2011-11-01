@@ -60,8 +60,9 @@ class FlatPageAdmin(flatpages_admin.FlatPageAdmin):
         return super(FlatPageAdmin, self).formfield_for_dbfield(db_field, **kwargs)
     # redefining
     fieldsets = (
-        (None, {'fields': ('url', 'title', 'content', 'sites', 'template_name')}),
-        (_('Advanced options'), {'classes': ('collapse',), 'fields': ('enable_comments', 'registration_required')}),
+        (None, {'fields': ('url', 'title', 'content', 'sites')}),
+        (_('Advanced options'), {'classes': ('collapse',), 'fields': ('enable_comments',
+                                                    'registration_required', 'template_name')}),
     )
 
 admin.site.unregister(FlatPage)
