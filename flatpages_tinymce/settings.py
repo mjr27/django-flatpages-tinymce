@@ -13,7 +13,7 @@ USE_MINIFIED = getattr(settings, 'FLATPAGES_USE_MINIFIED', None)
 if USE_MINIFIED is None:
     USE_MINIFIED = not getattr(settings, 'DEBUG')
 
-if 'staticfiles' in settings.INSTALLED_APPS:
+if 'django.contrib.staticfiles' in settings.INSTALLED_APPS:
     MEDIA_URL = os.path.join(getattr(settings, 'STATIC_URL', ''), 'flatpages_tinymce')
 else:
     MEDIA_URL = getattr(settings, 'FLATPAGES_MEDIA_URL', os.path.join(settings.MEDIA_URL, 'flatpages_tinymce'))
