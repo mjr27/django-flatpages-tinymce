@@ -1,4 +1,4 @@
 include *.rst
 include .gitignore
 recursive-include flatpages_tinymce/templates *
-recursive-include flatpages_tinymce/media *
+recursive-include flatpages_tinymce/static *
