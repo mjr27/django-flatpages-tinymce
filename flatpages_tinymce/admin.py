@@ -3,6 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.core.urlresolvers import reverse
 from django import forms
 from django.contrib import admin
+from django.contrib.auth.decorators import permission_required
 from django.contrib.flatpages.models import FlatPage
 from django.contrib.flatpages import admin as flatpages_admin
 from tinymce.widgets import TinyMCE
@@ -17,7 +18,9 @@ class FlatPageAdmin(flatpages_admin.FlatPageAdmin):
     # @csrf_protect
     def __init__(self, *args, **kwargs):
         super(FlatPageAdmin, self).__init__(*args, **kwargs)
-        self.ajax_save = csrf_protect(self._ajax_save)
+
+        # Once Django 1.4 is commonplace, add raise_exception=True to permission_required.
+        self.ajax_save = csrf_protect(permission_required('flatpages.change_flatpage')(self._ajax_save))
 
     @transaction.commit_on_success
     def _ajax_save(self, request):
