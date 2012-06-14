@@ -52,7 +52,7 @@ class FlatPageAdmin(flatpages_admin.FlatPageAdmin):
                 attrs={'cols': 80, 'rows': 30},
                     mce_attrs={'external_link_list_url': reverse('tinymce.views.flatpages_link_list')},
                     ))
-        elif db_field.name == "template_name":
+        elif db_field.name == "template_name" and settings.USE_TEMPLATE_DROPDOWN:
             prev_field = super(FlatPageAdmin, self).formfield_for_dbfield(db_field, **kwargs)
             return forms.FilePathField(label=prev_field.label,
                                        path=settings.TEMPLATE_DIR,

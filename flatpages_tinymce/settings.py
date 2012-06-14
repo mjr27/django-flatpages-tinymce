@@ -4,6 +4,7 @@ from django.conf import settings
 USE_ADMIN_AREA_TINYMCE = getattr(settings, "FLATPAGES_TINYMCE_ADMIN", True)
 USE_FRONTED_TINYMCE = getattr(settings, "FLATPAGES_TINYMCE_FRONTEND", True)
 
+USE_TEMPLATE_DROPDOWN = getattr(settings, "FLATPAGES_USE_TEMPLATE_DROPDOWN", True)
 TEMPLATE_DIR = getattr(settings, "FLATPAGES_TEMPLATE_DIR", os.path.join(settings.TEMPLATE_DIRS[0], 'flatpages'))
 TEMPLATE_FILES_REGEXP = getattr(settings, 'FLATPAGES_ADMIN_REGEXP', r'.*\.d?html?')
 
